@@ -42,5 +42,5 @@ if we need reverse just change formula
 ans = (digit * power(10, i)) + ans
 (1 * 10^0) + 0 -> 1
 (2 * 10^1) + 1 -> 21
-(3 * 10^2) + 0 -> 321
+(3 * 10^2) + 21 -> 321
 */

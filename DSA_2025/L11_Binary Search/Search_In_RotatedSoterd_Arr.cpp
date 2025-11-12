@@ -84,3 +84,127 @@ int main()
 }
 
 //  complexity O(logn)
+
+// +++++++++++++++++++++++++++++++OTHER WAYS- BRUTE FORCE++++++++++++++++++++++
+#include <bits/stdc++.h>
+using namespace std;
+
+int searchLinear(vector<int> &arr, int target)
+{
+    for (int i = 0; i < arr.size(); i++)
+    {
+        if (arr[i] == target) // check each element
+            return i;         // return index if found
+    }
+    return -1; // return -1 if not found
+}
+
+int main()
+{
+    vector<int> arr = {8, 10, 17, 1, 3};
+    cout << searchLinear(arr, 10) << endl; // Output: 1
+    return 0;
+}
+
+/*
+🕒 Time Complexity: O(n)
+📦 Space Complexity: O(1)
+✅ Works always but not efficient — not acceptable in interviews.
+*/
+
+//+++++++++++++++++++++++++++++++++++++++++++++++ONE PASS MODIFIED BINARY SEARCH++++++++++++++++++++++++++++++++
+#include <bits/stdc++.h>
+using namespace std;
+
+// Function to search in rotated sorted array in one pass
+int searchOnePass(vector<int> &arr, int target)
+{
+    int left = 0, right = arr.size() - 1;
+
+    while (left <= right)
+    {
+        int mid = left + (right - left) / 2; // find mid safely
+
+        if (arr[mid] == target)
+            return mid; // found target, return index
+
+        // Check which half is sorted
+        if (arr[left] <= arr[mid])
+        { // left half is sorted
+            if (arr[left] <= target && target < arr[mid])
+                right = mid - 1; // target lies in left half
+            else
+                left = mid + 1; // target lies in right half
+        }
+        else
+        { // right half is sorted
+            if (arr[mid] < target && target <= arr[right])
+                left = mid + 1; // target lies in right half
+            else
+                right = mid - 1; // target lies in left half
+        }
+    }
+    return -1; // target not found
+}
+
+int main()
+{
+    vector<int> arr = {8, 10, 17, 1, 3};
+    cout << searchOnePass(arr, 10) << endl; // Output: 1
+    return 0;
+}
+
+/*
+🧩 Explanation:
+- At each step, one half (left or right) is always sorted.
+- We determine which half target lies in, and narrow our search.
+
+🕒 Time Complexity: O(log n)
+📦 Space Complexity: O(1)
+✅ Fastest, cleanest, and most optimal method.
+*/
+
+// ++++++++++++++++++++++++++++++++++++++++++++++++ RECURSIVE BINARY SEARCH (VARIATION OF ONE PASS) ++++++++++++++++++++++++++++++++++++++++++
+#include <bits/stdc++.h>
+using namespace std;
+
+int searchRecursive(vector<int> &arr, int left, int right, int target)
+{
+    if (left > right)
+        return -1; // base case
+
+    int mid = left + (right - left) / 2;
+
+    if (arr[mid] == target)
+        return mid;
+
+    // Left half sorted
+    if (arr[left] <= arr[mid])
+    {
+        if (target >= arr[left] && target < arr[mid])
+            return searchRecursive(arr, left, mid - 1, target);
+        else
+            return searchRecursive(arr, mid + 1, right, target);
+    }
+    // Right half sorted
+    else
+    {
+        if (target > arr[mid] && target <= arr[right])
+            return searchRecursive(arr, mid + 1, right, target);
+        else
+            return searchRecursive(arr, left, mid - 1, target);
+    }
+}
+
+int main()
+{
+    vector<int> arr = {8, 10, 17, 1, 3};
+    cout << searchRecursive(arr, 0, arr.size() - 1, 3) << endl; // Output: 4
+    return 0;
+}
+
+/*
+🕒 Time Complexity: O(log n)
+📦 Space Complexity: O(log n) (due to recursion stack)
+✅ Elegant, but iterative version preferred for low memory usage.
+*/

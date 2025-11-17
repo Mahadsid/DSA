@@ -2,6 +2,11 @@
 #include <vector>
 using namespace std;
 
+// Rotate array by "k" place
+/*
+example [-1, -100, 3, 99] k= 2 output=[3, 99, -1, -100]
+*/
+
 vector<int> rotate(vector<int> &nums, int k)
 {
 
@@ -11,7 +16,7 @@ vector<int> rotate(vector<int> &nums, int k)
 
     for (int i = 0; i < n; i++)
     {
-
+        // cyclic way m K position s shift krna = this formula
         temp[(i + k) % n] = nums[i];
     }
 

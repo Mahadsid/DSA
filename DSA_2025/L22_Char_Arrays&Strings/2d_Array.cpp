@@ -1,3 +1,4 @@
+// 2D array lecture 22
 #include <iostream>
 using namespace std;
 

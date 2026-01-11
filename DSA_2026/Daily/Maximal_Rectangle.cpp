@@ -40,6 +40,7 @@ matrix[i][j] is '0' or '1'.
 */
 
 /***************************************************** C++ ****************************************************/
+/***************************************************** Same Code used in 84. Largest Rectangle in Histogram ****************************************************/
 //Approach-1 (using NSL and NSR to find MAH (Maximum Area in Histogram)
 //T.C : O(row*(col+col)) ~= O(row*col)
 //S.C : O(col)

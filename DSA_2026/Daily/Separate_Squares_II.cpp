@@ -51,7 +51,7 @@ squares[i].length == 3
 1 <= li <= 109
 The total area of all the squares will not exceed 1015.
 */
-Approach
+/*Approach
 Convert each square into two y-events:
 
 start event at y
@@ -71,6 +71,7 @@ Find where cumulative area reaches half
 Interpolate to get the exact y-value
 
 Code
+*/
 class Solution {
     vector<int> cnt;
     vector<double> segLen;

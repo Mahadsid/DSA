@@ -69,8 +69,6 @@ Store all strips
 Find where cumulative area reaches half
 
 Interpolate to get the exact y-value
-
-Code
 */
 class Solution {
     vector<int> cnt;

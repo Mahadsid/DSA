@@ -2,9 +2,6 @@
 3454. Separate Squares II
 Solved
 Hard
-Topics
-premium lock icon
-Companies
 Hint
 You are given a 2D integer array squares. Each squares[i] = [xi, yi, li] represents the coordinates of the bottom-left point and the side length of a square parallel to the x-axis.
 

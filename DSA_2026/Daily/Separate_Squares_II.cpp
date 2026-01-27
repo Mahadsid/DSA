@@ -67,6 +67,10 @@ Find where cumulative area reaches half
 
 Interpolate to get the exact y-value
 */
+
+#include <bits/stdc++.h>
+using namespace std;
+
 class Solution {
     vector<int> cnt;
     vector<double> segLen;

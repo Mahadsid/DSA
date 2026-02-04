@@ -1,9 +1,6 @@
 /*
 865. Smallest Subtree with all the Deepest Nodes
 Medium
-Topics
-premium lock icon
-Companies
 Given the root of a binary tree, the depth of each node is the shortest distance to the root.
 
 Return the smallest subtree such that it contains all the deepest nodes in the original tree.
